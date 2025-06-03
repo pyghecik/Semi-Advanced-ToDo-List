@@ -11,7 +11,13 @@ import {
 import Table from "./components/table";
 import EditForm from "./components/editForm";
 import { ToastContainer } from "react-toastify";
-import { DndContext } from "@dnd-kit/core";
+
+import {
+  DndContext,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 
 export default function Home() {
   const { closed: closedCreate, setClosed: setClosedCreate } =
@@ -20,8 +26,18 @@ export default function Home() {
   const { tables } = useTableStore();
   const { moveTask } = useTaskStore();
 
+  // Dodanie PointerSensor — obsługuje dotyk i mysz
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5, // aktywacja po przesunięciu palcem o 5px
+      },
+    })
+  );
+
   return (
     <DndContext
+      sensors={sensors}
       onDragEnd={(event) => {
         const { over, active } = event;
         if (over && over.id !== active.data.current?.tableId) {

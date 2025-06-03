@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="mt-[4rem] md:mt-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         {completedTasks.length == 0 ? (
           <h1 className="text-2xl font-light mb-4">
             Complete created task to see analytics!

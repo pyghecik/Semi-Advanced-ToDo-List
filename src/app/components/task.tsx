@@ -40,18 +40,14 @@ export default function Task({ id, title, description }: TaskProps) {
         onMouseMove={(e) => setPos({ x: e.clientX, y: e.clientY })}
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
-        className="bg-white border border-black p-2 w-[21rem] min-h-[5rem] rounded-[.35rem] flex items-center gap-2"
+        className="bg-white border border-black p-2 w-[21rem] min-h-[5rem] rounded-[.35rem] flex items-center gap-2 touch-none"
+        {...listeners}
+        {...attributes}
       >
-        {/* Obszar przeciągania */}
-        <div
-          className="flex-1 overflow-hidden break-words cursor-grab"
-          {...listeners}
-          {...attributes}
-        >
+        <div className="flex-1 overflow-hidden break-words cursor-grab">
           <h1 className="select-none">{title}</h1>
         </div>
 
-        {/* Ikona edycji - bez listenerów */}
         <svg
           onMouseEnter={() => setShow(false)}
           onMouseLeave={() => setShow(true)}

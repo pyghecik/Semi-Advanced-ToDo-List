@@ -56,7 +56,7 @@ export default function CompletedTasksChart() {
   }, [completedTasks]);
 
   return (
-    <div className="w-[700px] h-[400px] bg-white p-6 rounded-[.35rem] border-1 border-black">
+    <div className="w-[20rem] md:w-[40rem] h-[25rem] bg-white p-6 rounded-[.35rem] border-1 border-black">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />

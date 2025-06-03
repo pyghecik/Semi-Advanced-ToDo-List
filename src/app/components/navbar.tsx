@@ -47,6 +47,9 @@ export default function Navbar({ onClick }: AddButtonProps) {
             />
           </svg>
         </div>
+        <div className="hidden md:flex m-3 w-[20rem] h-auto items-center justify-center opacity-35 pointer-events-none select-none">
+          <p>Add table, then add tasks and manage them!</p>
+        </div>
       </div>
       {/*Hr line*/}
       <hr className="border-t border-black w-full" />
